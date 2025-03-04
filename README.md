@@ -32,22 +32,21 @@ We will use **Docker** to containerize and deliver our application.
 Make sure you have Docker installed and working on your machine:
 - Install Docker → Download [Docker](https://docs.docker.com/get-started/get-docker/)
 - Verify installation by running:
-
 ```
 sh
 docker --version
 ```
-# 🦄 How to Clone the Repository
-We will use GitHub Desktop for cloning the repository.
+# 😇 How to Clone the Repository
+❗ Pay attention to clone the 2 projects.
 
+We will use GitHub Desktop for cloning the repository:
 1. Open GitHub Desktop.
 2. Click on "File" → "Clone repository".
 3. Select "GitHub.com" and find this project’s repository.
 4. Choose a local folder to store the project and click "Clone".
 
 Alternatively, you can clone the repo using the command line:
-
 ```sh
 git clone https://github.com/Hackaton-Yad-Tamar/IT.git
-cd IT
+git clone https://github.com/Hackathon-Night-Shine/app.git
 ```
