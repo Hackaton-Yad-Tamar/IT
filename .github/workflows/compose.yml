@@ -43,7 +43,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           source: ./docker/yad-tamar/docker-compose.yml
-          target: /home/user-yad-tamar/
+          target: .
           debug: true
 
       - name: Deploy to Remote Server
