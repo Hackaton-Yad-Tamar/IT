@@ -16,10 +16,10 @@ jobs:
       - name: Login to Docker Hub
         run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
-      - name: Pull latest images
-        run: |
-          docker pull yadtamar/back:latest
-          docker pull yadtamar/front:latest
+      # - name: Pull latest images
+      #   run: |
+      #     docker pull yadtamar/back:latest
+      #     docker pull yadtamar/front:latest
 
       - name: Clean up disk space on Remote Server
         uses: appleboy/ssh-action@master
@@ -42,7 +42,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          source: docker/yad-tamar/docker-compose.yml
+          source: ./docker/yad-tamar/docker-compose.yml
           target: /home/user-yad-tamar/
           debug: true
 
@@ -53,7 +53,6 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd ~
             ls -la  # בדיקה אם הקובץ אכן הועתק
             cat /home/user-yad-tamar/docker-compose.yml  # מציג את תוכן הקובץ כדי לוודא שהוא שם
             docker-compose -f /home/user-yad-tamar/docker-compose.yml down  # משתמש בקובץ עם -f
