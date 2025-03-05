@@ -39,7 +39,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             ls -la /home/user-yad-tamar  # בדיקה אם הקובץ אכן הועתק
-            cat /home/user-yad-tamar/docker-compose.yml  # מציג את תוכן הקובץ כדי לוודא שהוא שם
             docker-compose -f /home/user-yad-tamar/folder/docker/yad-tamar/docker-compose.yml down
             docker-compose -f /home/user-yad-tamar/folder/docker/yad-tamar/docker-compose.yml pull
             docker-compose -f /home/user-yad-tamar/folder/docker/yad-tamar/docker-compose.yml up -d
