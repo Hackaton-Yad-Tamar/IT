@@ -33,7 +33,6 @@ jobs:
             sudo rm -rf /tmp/*  # מנקה קבצים זמניים
             df -h  # מציג שוב את מצב האחסון
             rm -rf ~/docker-compose.yml  # מוחק את התיקייה אם היא קיימת
-            mkdir folder
           debug: true
 
       - name: Copy docker-compose.yml to Remote Server
