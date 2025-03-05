@@ -53,11 +53,11 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            ls -la  # בדיקה אם הקובץ אכן הועתק
+            ls -la /home/user-yad-tamar  # בדיקה אם הקובץ אכן הועתק
             cat /home/user-yad-tamar/docker-compose.yml  # מציג את תוכן הקובץ כדי לוודא שהוא שם
-            docker-compose -f /home/user-yad-tamar/docker-compose.yml down  # משתמש בקובץ עם -f
-            docker-compose -f ~/docker-compose.yml pull
-            docker-compose -f ~/docker-compose.yml up -d
-            docker-compose -f ~/docker-compose.yml logs -f
+            docker-compose -f /home/user-yad-tamar/docker-compose.yml down
+            docker-compose -f /home/user-yad-tamar/docker-compose.yml pull
+            docker-compose -f /home/user-yad-tamar/docker-compose.yml up -d
+            docker-compose -f /home/user-yad-tamar/docker-compose.yml logs -f
 
 #
