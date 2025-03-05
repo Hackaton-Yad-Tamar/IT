@@ -21,9 +21,9 @@ services:
     environment:
       DB_HOST: db
       DB_PORT: 5432
-      DB_USERNAME: ${DB_USERNAME}
-      DB_PASSWORD: ${DB_PASSWORD}
-      DB_NAME: mydatabase # שם הדאטהבייס, אם צריך
+      DB_USERNAME: yad-tamar
+      DB_PASSWORD: kingshoval!123
+      DB_NAME: yad-tamar # שם הדאטהבייס, אם צריך
     networks:
       - mynetwork
 
@@ -31,9 +31,9 @@ services:
     image: postgres:16.2
     container_name: postgres-db
     environment:
-      POSTGRES_USER: ${DB_USERNAME}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: mydatabase # שם הדאטהבייס
+      POSTGRES_USER: yad-tamar
+      POSTGRES_PASSWORD: kingshoval!123
+      POSTGRES_DB: yad-tamar # שם הדאטהבייס
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
