@@ -28,7 +28,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           source: docker/yad-tamar/docker-compose.yml
-          target: /home/docker-compose.yml
+          target: /home/
           debug: true
 
       - name: Deploy to Remote Server
@@ -40,7 +40,7 @@ jobs:
           script: |
             cd /home
             ls -la  # בדיקה אם הקובץ אכן הועתק
-            docker-compose down
-            docker-compose pull
-            docker-compose up -d
-            docker-compose logs -f
+            docker-compose -f docker-compose.yml down  # משתמש בקובץ עם -f
+            docker-compose -f docker-compose.yml pull
+            docker-compose -f docker-compose.yml up -d
+            docker-compose -f docker-compose.yml logs -f
