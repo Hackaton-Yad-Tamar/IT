@@ -33,7 +33,7 @@ jobs:
             sudo rm -rf /tmp/*  # מנקה קבצים זמניים
             df -h  # מציג שוב את מצב האחסון
             rm -rf ~/docker-compose.yml  # מוחק את התיקייה אם היא קיימת
-            pwd
+            touch blablabla
           debug: true
 
       - name: Copy docker-compose.yml to Remote Server
@@ -43,7 +43,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           source: docker/yad-tamar/docker-compose.yml
-          target: /home/user-yad-tamar
+          target: /home/user-yad-tamar/
           debug: true
 
       - name: Deploy to Remote Server
