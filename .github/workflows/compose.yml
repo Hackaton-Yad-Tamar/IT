@@ -21,20 +21,6 @@ jobs:
       #     docker pull yadtamar/back:latest
       #     docker pull yadtamar/front:latest
 
-      - name: Clean up disk space on Remote Server
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          script: |
-            df -h  # מציג את מצב האחסון
-            sudo docker system prune -f  # מוחק קונטיינרים ותמונות ישנות
-            sudo rm -rf /tmp/*  # מנקה קבצים זמניים
-            df -h  # מציג שוב את מצב האחסון
-            rm -rf ~/docker-compose.yml  # מוחק את התיקייה אם היא קיימת
-          debug: true
-
       - name: Copy docker-compose.yml to Remote Server
         uses: appleboy/scp-action@master
         with:
