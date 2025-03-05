@@ -32,6 +32,7 @@ jobs:
             sudo docker system prune -f  # מוחק קונטיינרים ותמונות ישנות
             sudo rm -rf /tmp/*  # מנקה קבצים זמניים
             df -h  # מציג שוב את מצב האחסון
+            rm -rf ~/docker-compose.yml  # מוחק את התיקייה אם היא קיימת
           debug: true
 
       - name: Copy docker-compose.yml to Remote Server
