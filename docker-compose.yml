@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   front:
@@ -7,8 +7,40 @@ services:
       - "5173:5173"
     depends_on:
       - back
+    environment:
+      REACT_APP_BACKEND_URL: http://back:8000
+    networks:
+      - mynetwork
 
   back:
     image: yadtamar/back:latest
     ports:
       - "8000:8000"
+    depends_on:
+      - db # תלות ב-DB
+    environment:
+      DB_HOST: db # מפנה לשם ה-Service של ה-DB
+      DB_PORT: 5432
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: mydatabase # שם הדאטהבייס, אם צריך
+    networks:
+      - mynetwork
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: mydatabase # שם הדאטהבייס
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # שמירת דאטה בין אתחולים
+    networks:
+      - mynetwork
+
+volumes:
+  postgres_data:
+
+networks:
+  mynetwork:
+    driver: bridge
