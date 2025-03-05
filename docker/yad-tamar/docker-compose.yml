@@ -2,9 +2,9 @@ services:
   front:
     image: yadtamar/front:latest
     ports:
-      - "5173:8080"
-    # depends_on:
-    #   - back
+      - "8080:5173"
+    depends_on:
+      - back
     environment:
       REACT_APP_BACKEND_URL: http://back:8000
     networks:
@@ -17,10 +17,9 @@ services:
     depends_on:
       - db
     environment:
-      DB_HOST: db
-      DB_PORT: 5432
-      DB_USERNAME: yad-tamar
-      DB_PASSWORD: kingshoval!123
+      DB_IP: db:5432
+      POSTGRES_USER: yad-tamar
+      POSTGRES_PASSWORD: kingshoval!123
       DB_NAME: yad-tamar # שם הדאטהבייס, אם צריך
     networks:
       - mynetwork
