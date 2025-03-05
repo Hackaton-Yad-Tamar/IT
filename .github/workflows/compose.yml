@@ -30,7 +30,7 @@ jobs:
         uses: appleboy/scp-action@master
         with:
           source: IT/docker/yad-tamar/docker-compose.yml
-          target: ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/yad-tamar/
+          target: ${{ secrets.SSH_USER }}@20.50.143.29:/home/yad-tamar/
           key: ${{ secrets.SSH_KEY }}
           debug: true
 
