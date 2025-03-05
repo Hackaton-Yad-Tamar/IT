@@ -21,6 +21,11 @@ jobs:
           docker pull yadtamar/back:latest
           docker pull yadtamar/front:latest
 
+      - name: Print secrets (for debug only - remove later)
+        run: |
+          echo "SSH_HOST: ${{ secrets.SSH_HOST }}"
+          echo "SSH_USER: ${{ secrets.SSH_USER }}"
+
       - name: Copy docker-compose.yml to Remote Server
         uses: appleboy/scp-action@master
         with:
