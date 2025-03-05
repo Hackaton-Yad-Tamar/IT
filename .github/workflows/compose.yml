@@ -32,7 +32,7 @@ jobs:
           source: IT/docker/yad-tamar/docker-compose.yml
           target: ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/yad-tamar/
           key: ${{ secrets.SSH_KEY }}
-          debug: true # מוסיף פלט מפורט
+          debug: true
 
       - name: Deploy to Remote Server
         uses: appleboy/ssh-action@master
