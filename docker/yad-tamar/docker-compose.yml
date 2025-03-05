@@ -17,9 +17,9 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - db # תלות ב-DB
+      - db
     environment:
-      DB_HOST: db # מפנה לשם ה-Service של ה-DB
+      DB_HOST: db
       DB_PORT: 5432
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
@@ -28,19 +28,16 @@ services:
       - mynetwork
 
   db:
-    image: postgres:latest
+    image: postgres:16.2
+    container_name: postgres-db
     environment:
-      POSTGRES_USER: ${DB_USERNAME} #yad-tamar
-      POSTGRES_PASSWORD: ${DB_PASSWORD} #kingshoval!123
-      POSTGRES_DB: 20.50.143.29
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: mydatabase # שם הדאטהבייס
     volumes:
-      - postgres_data:/var/lib/postgresql/data 
+      - postgres_data:/var/lib/postgresql/data
     networks:
       - mynetwork
-        image: postgres:16.2
-
-    ##############################################
-    container_name: postgres-db
     ports:
       - "5432:5432"
 
