@@ -1,5 +1,5 @@
 services:
-  db:
+  postgres-db:
     image: postgres:16.2
     container_name: postgres-db
     env_file:
@@ -20,3 +20,10 @@ services:
   #     - "8000:8000"
 volumes:
   postgres_data:
+  
+networks:
+  yad-tamar_network:
+    driver: bridge
+
+include:
+  - ../monitoring/docker-compose.yml

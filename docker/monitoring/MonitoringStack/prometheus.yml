@@ -14,4 +14,4 @@ scrape_configs:
     # scheme defaults to 'http'.
 
     static_configs:
-      - targets: ["node-exporter:9100"]
+      - targets: ["node-exporter:9100", "postgres-exporter:9187"]
