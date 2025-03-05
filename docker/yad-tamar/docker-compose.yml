@@ -3,8 +3,8 @@ services:
     image: yadtamar/front:latest
     ports:
       - "5173:5173"
-    depends_on:
-      - back
+    # depends_on:
+    #   - back
     environment:
       REACT_APP_BACKEND_URL: http://back:8000
     networks:
