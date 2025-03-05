@@ -30,13 +30,19 @@ services:
   db:
     image: postgres:latest
     environment:
-      POSTGRES_USER: ${DB_USERNAME}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: mydatabase # שם הדאטהבייס
+      POSTGRES_USER: ${DB_USERNAME} #yad-tamar
+      POSTGRES_PASSWORD: ${DB_PASSWORD} #kingshoval!123
+      POSTGRES_DB: 20.50.143.29
     volumes:
-      - postgres_data:/var/lib/postgresql/data # שמירת דאטה בין אתחולים
+      - postgres_data:/var/lib/postgresql/data 
     networks:
       - mynetwork
+        image: postgres:16.2
+
+    ##############################################
+    container_name: postgres-db
+    ports:
+      - "5432:5432"
 
 volumes:
   postgres_data:
