@@ -5,15 +5,15 @@ services:
       - "8080:5173"
     depends_on:
       - back
-    environment:
-      VITE_HOST_URL: http://back:8000
+    # environment:
+    # VITE_HOST_URL: http://back:8000
     networks:
       - mynetwork
 
   back:
     image: yadtamar/back:latest
     ports:
-      - "8000:8000"
+      - "443:8000"
     depends_on:
       - db
     environment:
