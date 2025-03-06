@@ -1,29 +1,46 @@
 services:
-  postgres-db:
+  front:
+    image: yadtamar/front:latest
+    ports:
+      - "8080:5173"
+    depends_on:
+      - back
+    environment:
+      REACT_APP_BACKEND_URL: http://back:8000
+    networks:
+      - mynetwork
+
+  back:
+    image: yadtamar/back:latest
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DB_IP: db:5432
+      POSTGRES_USER: yad-tamar
+      POSTGRES_PASSWORD: kingshoval!123
+      DB_NAME: yad-tamar
+    networks:
+      - mynetwork
+
+  db:
     image: postgres:16.2
     container_name: postgres-db
-    env_file:
-      - .env
+    environment:
+      POSTGRES_USER: yad-tamar
+      POSTGRES_PASSWORD: kingshoval!123
+      POSTGRES_DB: yad-tamar
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - mynetwork
     ports:
       - "5432:5432"
-  # front:
-  #   image: yadtamar/front:latest
-  #   ports:
-  #     - "5173:5173"
-  #   depends_on:
-  #     - back
-  # back:
-  #   image: yadtamar/back:latest
-  #   ports:
-  #     - "8000:8000"
+
 volumes:
   postgres_data:
-  
-networks:
-  yad-tamar_network:
-    driver: bridge
 
-include:
-  - ../monitoring/docker-compose.yml
+networks:
+  mynetwork:
+    driver: bridge
