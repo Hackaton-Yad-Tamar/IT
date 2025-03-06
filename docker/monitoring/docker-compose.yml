@@ -27,6 +27,21 @@ services:
     networks:
       - monitoring_network
 
+  postgres-exporter:
+    image: wrouesnel/postgres_exporter
+    restart: always
+    environment:
+      - DATA_SOURCE_URI=postgres-db:5432/postgres?sslmode=disable
+      - DATA_SOURCE_USER=postgres
+      - DATA_SOURCE_PASS=kingshoval!123
+    ports:
+      - "9187:9187"
+    networks:
+      - yad-tamar_network
+      - monitoring_network
+    depends_on:
+      - postgres-db
+      
 volumes:
   grafana-storage: {}
 
