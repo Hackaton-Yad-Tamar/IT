@@ -3,7 +3,7 @@ name: CI/CD for Full Deployment
 on:
   push:
     branches:
-      - workflow-compose
+      - main
 
 jobs:
   deploy:
