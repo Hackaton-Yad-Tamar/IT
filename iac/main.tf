@@ -85,7 +85,7 @@ resource "azurerm_linux_virtual_machine" "my_terraform_vm" {
   location              = azurerm_resource_group.rg.location
   resource_group_name   = azurerm_resource_group.rg.name
   network_interface_ids = [azurerm_network_interface.my_terraform_nic.id]
-  size                  = "Standard_DS1_v2"
+  size                  = "Standard_D4s_v3"
 
   os_disk {
     name                 = "myOsDisk"
@@ -94,9 +94,9 @@ resource "azurerm_linux_virtual_machine" "my_terraform_vm" {
   }
 
   source_image_reference {
-    publisher = "Canonical"
-    offer     = "0001-com-ubuntu-server-jammy"
-    sku       = "22_04-lts-gen2"
+    publisher = "RedHat"
+    offer     = "RHEL"
+    sku       = "8_6"
     version   = "latest"
   }
 
