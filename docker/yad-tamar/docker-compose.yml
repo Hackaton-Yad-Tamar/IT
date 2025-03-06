@@ -20,7 +20,7 @@ services:
       DB_IP: db:5432
       POSTGRES_USER: yad-tamar
       POSTGRES_PASSWORD: kingshoval!123
-      DB_NAME: yad-tamar # שם הדאטהבייס, אם צריך
+      DB_NAME: yad-tamar
     networks:
       - mynetwork
 
@@ -30,7 +30,7 @@ services:
     environment:
       POSTGRES_USER: yad-tamar
       POSTGRES_PASSWORD: kingshoval!123
-      POSTGRES_DB: yad-tamar # שם הדאטהבייס
+      POSTGRES_DB: yad-tamar
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
