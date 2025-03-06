@@ -6,7 +6,7 @@ services:
     depends_on:
       - back
     environment:
-      VITE_HOST_URL: http://back:8000
+      VITE_HOST_URL: http://20.50.143.29:8000
     networks:
       - mynetwork
 
